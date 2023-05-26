@@ -9,11 +9,11 @@ export default class GalleryService {
   }
 
   async getImg() {
-    const { data } = await axios.get(
+    const response = await axios.get(
       `${URL}?key=${API_KEY}&q=${this.q}}&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=${this.page}`
     );
     this.incrementPage();
-    return data.hits;
+    return response.data;
   }
 
   resetPage() {
